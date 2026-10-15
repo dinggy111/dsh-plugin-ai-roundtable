@@ -1,0 +1,14 @@
+{
+  "name": "dsh-plugin-ai-roundtable-native",
+  "version": "0.1.0-dev.8",
+  "private": true,
+  "description": "AI 圆桌：原生 Harness 会话、工作区、权限与工具执行",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": { ".": "./lib/index.js", "./client": "./lib/client.js", "./package.json": "./package.json" },
+  "files": ["lib", "cordis.patch.yml", "README.md"],
+  "scripts": { "build": "node scripts/build-client.mjs", "test": "node --test --test-isolation=none tests/*.test.mjs", "test:native": "node scripts/run-native-tests.mjs" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" }, "client": { "platform": "web", "inject": [] } },
+  "engines": { "node": ">=22" },
+  "license": "MIT"
+}
