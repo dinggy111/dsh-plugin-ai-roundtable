@@ -1,3 +1,3 @@
 - insert:
-    - id: ai-roundtable-native
-      name: dsh-plugin-ai-roundtable-native
+    - id: ai-roundtable
+      name: dsh-plugin-ai-roundtable

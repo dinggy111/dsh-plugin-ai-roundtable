@@ -1,1 +1,1 @@
-{ "name": "dsh-roundtable-native-test-fixture", "private": true, "type": "module", "main": "index.js" }
+{ "name": "dsh-roundtable-test-fixture", "private": true, "type": "module", "main": "index.js" }

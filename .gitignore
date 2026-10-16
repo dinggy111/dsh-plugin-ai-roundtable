@@ -30,5 +30,8 @@ secrets.json
 Thumbs.db
 desktop.ini
 
-# Local development records are not part of the public release.
+# Private development notes, extracted host prompts and local screenshots.
 /docs/development-notes.md
+/docs/harness-standard-system-prompt.txt
+/docs/*.png
+/scripts/inspect-native-titles.mjs

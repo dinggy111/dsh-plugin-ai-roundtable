@@ -7,7 +7,7 @@ test('browser bundle registers once and uses only shell-provided shared librarie
   let loaded
   const code = await readFile(new URL('../lib/client.js', import.meta.url), 'utf8')
   vm.runInNewContext(code, { window: { __ModuleLoader__: { load(value) { assert.equal(loaded, undefined); loaded = value } } } })
-  assert.equal(loaded.id, 'dsh-plugin-ai-roundtable-native')
+  assert.equal(loaded.id, 'dsh-plugin-ai-roundtable')
   const requires = []
   const plugin = loaded.factory(name => { requires.push(name); return {} })
   assert.deepEqual(requires, ['react', 'react-dom', '@deepseek-ai/dsh-client-store'])
@@ -30,7 +30,7 @@ test('client registrations are additive and retain native input, permission and 
   plugin.apply({ uiWorkspace: { startSession() {} }, conversation: { sendSession() {}, blocks: { storeFor() {} } }, effect(fn) { fn() }, slots: { inject(_name, register) { register() }, register(options) { registrations.push(options) } } })
   await Promise.resolve(); await Promise.resolve()
   assert.deepEqual(registrations.map(r => r.name), ['shell.overlay', 'conversation.input.left', 'conversation.session.header.utilities', 'conversation.chat.turnTail'])
-  assert.ok(registrations.every(r => r.id === 'ai-roundtable-native'))
+  assert.ok(registrations.every(r => r.id === 'ai-roundtable'))
   assert.ok(!registrations.some(r => /permission|attachments|composer\.bar/.test(r.name)))
 })
 
